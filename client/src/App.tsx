@@ -24,6 +24,8 @@ interface TripsResponse {
   trips: TripsData;
 }
 
+// Since it's only 2 endpoints I've decided to keep api functions as well as tanstack/queries
+// in the same module/files where they're being used. In the larger application this could reduce readability
 async function getTrips({ page = 1, limit = 20 }: { page: number; limit: number }) {
   return await axios.get(`http://localhost:3000/trips/?page=${page}&limit=${limit}`);
 }
