@@ -25,7 +25,7 @@ interface TripsResponse {
 }
 
 async function getTrips({ page = 1, limit = 20 }: { page: number; limit: number }) {
-  return await axios.get(`http://localhost:8000/trips/?page=${page}&limit=${limit}`);
+  return await axios.get(`http://localhost:3000/trips/?page=${page}&limit=${limit}`);
 }
 
 function useGetTrips() {
@@ -54,7 +54,6 @@ export function App() {
 
   useEffect(() => {
     if (inView && hasNextPage) {
-      console.log('damn it from next page');
       fetchNextPage();
     }
   }, [inView, fetchNextPage, hasNextPage]);
@@ -69,6 +68,7 @@ export function App() {
         wrap="wrap"
         justifyContent="space-around"
         padding="40px"
+        data-testid="stack"
       >
         {data?.pages.map((page) => {
           return page.data.trips.map((trip, i) => {

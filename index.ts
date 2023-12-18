@@ -8,12 +8,11 @@ const app: Express = express();
 
 app.use(express.json());
 app.use(cors());
+const port = process.env.PORT || 3000;
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World From the Typescript Server!!!");
 });
-
-const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
   console.log(`App is listening on port ${port}`);

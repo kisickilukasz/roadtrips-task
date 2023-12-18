@@ -13,7 +13,7 @@ import { TripDetailsFooter } from './TripDetailsFooter';
 import { Trip } from '../App';
 
 async function getTripDetails(id?: string) {
-  return await axios.get(`http://localhost:8000/trips/${id}`);
+  return await axios.get(`http://localhost:3000/trips/${id}`);
 }
 
 function useGetTripDetails(id?: string) {
